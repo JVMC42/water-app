@@ -1,12 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
+import { NativeBaseProvider } from 'native-base';
 import { StyleSheet, Text, View } from 'react-native';
+import { Dashboard } from './src/screens/Dashboard';
+import { Routes } from './src/routes/routes';
+import { UserProvider } from './src/contexts/UserContext';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+    <NativeBaseProvider>
+      <UserProvider>
       <StatusBar style="auto" />
-    </View>
+      <Routes/>
+      </UserProvider>
+    </NativeBaseProvider>
   );
 }
 
